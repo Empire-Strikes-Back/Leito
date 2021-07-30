@@ -1,0 +1,148 @@
+/* some style */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* color:green; */
+  margin: 0px;
+}
+.bordered {
+  border: 1px solid black;
+}
+
+
+/* ant overrides */
+
+.ant-layout {
+  background: #fff;
+}
+
+.ant-layout-sider, .ant-layout-sider-trigger {
+  border-right: 1px solid #f0f2f5;
+}
+
+ .logo {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  /* height: 31px; */
+  background: rgba(255, 255, 255, 0.2);
+  /* margin: 16px 24px 16px 0; */
+  float: left;
+  margin: 0 32px 0 0 ;
+  /* border-right:1px solid #dedede; */
+
+  color: #000;
+}
+
+.logo-img {
+  max-height: 32px;
+}
+
+.logo-name {
+  left: 0px;
+  position: relative;
+  font-style: italic;
+}
+
+.main-content.ant-layout-content {
+  height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+
+.ant-table-small>.ant-table-content>
+.ant-table-body>table>.ant-table-tbody>tr>td,
+
+.ant-table-small>.ant-table-content>
+.ant-table-scroll>.ant-table-body>table>.ant-table-tbody>tr>td
+{
+  padding: 2px;
+}
+
+.fiber-table-amount-field {
+  margin-right: 16px;
+}
+
+.fiber-example-queries-table-row {
+  cursor: pointer;
+}
+
+.editor-feature {
+  border: 1px solid lightgrey;
+  height: 368px !important;
+  flex: 0 0 auto;
+  /* display: inline-block; */
+}
+
+.editor-response {
+  border: 1px solid lightgrey;
+  height: 368px !important;
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+.editor-request {
+  border: 1px solid lightgrey;
+  height: 368px !important;
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+.editor-ecql {
+  border: 1px solid lightgrey;
+  height: 368px !important;
+  flex: 0 0 auto;
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+.editors-container {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: left; */
+}
+
+.rest-editor-data {
+  border: 1px solid lightgrey;
+  height: 80vh !important;
+  flex: 0 0 auto;
+  /* display: inline-block; */
+}
+
+.rest-editor-response {
+  border: 1px solid lightgrey;
+  height: 50vh !important;
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+.rest-table {
+  height: 28vh;
+}
+
+.ol-zoom {
+  top: .5em;
+  /* left: .5em; */
+  right: .5em !important;
+  left: initial !important;
+}
+
+.tab-buttons-container .ant-btn   {
+  margin-left: 0 !important;
+}
+
+.all-layers-container {
+  position: absolute;
+  top: 64px;
+  left: 32px;
+  height: calc(100% - 64px - 32px);
+  width: 32vw;
+  background: #fff;
+  border: 1px solid #dedede;
+  padding: 2px;
+}
