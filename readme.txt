@@ -1,4 +1,4 @@
-i am ged program - i am game
+i am ged program
 
 i am pronounced 'jed'
 
