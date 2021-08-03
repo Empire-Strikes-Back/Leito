@@ -17,7 +17,7 @@
                               bidi {:mvn/version "2.1.6"}
 
                               kibu/pushy {:mvn/version "0.3.8"}
-                              com./cljs-time {:mvn/version "0.5.2"}
+                              com.andrewmcveigh/cljs-time {:mvn/version "0.5.2"}
                               cljs-ajax {:mvn/version "0.7.3"}
                               com.cognitect/transit-cljs {:mvn/version "0.8.256"}
 
@@ -26,7 +26,7 @@
                               clj-http {:mvn/version "3.10.0"}
                               cheshire {:mvn/version "5.8.1"}
                               slingshot {:mvn/version "0.12.2"}}}
-           :shadow {:extra-deps {/shadow-cljs {:mvn/version "2.8.52"}}}
+           :shadow {:extra-deps {thheller/shadow-cljs {:mvn/version "2.8.52"}}}
            :server {:extra-deps {clj-http {:mvn/version "3.10.0"}}}
            :local {:extra-deps {;ged {:local/root "/opt/root/..."}
                                 }}
