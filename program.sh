@@ -17,4 +17,13 @@ main(){
     -M -m ged.main
 }
 
+uberjar(){
+  clj \
+    -X:uberjar genie.core/process \
+    :uberjar-name out/ged.standalone.jar \
+    :main-ns ged.main
+  mkdir -p out/jpackage-input
+  mv out/ged.standalone.jar out/jpackage-input/
+}
+
 "$@"
