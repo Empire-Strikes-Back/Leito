@@ -1,2 +1,6 @@
-out/
 .cpcache/
+node_modules/
+.shadow-cljs
+resources/public/js-out
+package-lock.json
+yarn.lock
