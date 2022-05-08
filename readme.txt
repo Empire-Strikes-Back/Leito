@@ -1,8 +1,2 @@
-i am ged program - geoserver geometry editor
-
-i am pronounced 'jed'
-
-i am geometry editor for geoserver layers
-i use geoserver wms/wfs api
-i use wfs transactions to edit layers
-i have no logo - my name, a word - ged - defines me
+you see Taha, that's the difference between us two
+you never know what's in my head but i know all the shit going in yours
