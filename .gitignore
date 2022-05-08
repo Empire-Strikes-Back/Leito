@@ -4,3 +4,4 @@ node_modules/
 resources/public/js-out
 package-lock.json
 yarn.lock
+out/

@@ -1,62 +1,52 @@
 {:deps         true
-
- :nrepl        {:port 7888
-                ;:init-ns sniff.core
-                }
-;  :dev-http     {9500 {:roots ["resources/public" "target/public" ]
-;                      ;  :proxy-url "https://localhost:7881/attrs"
-;                       }}
-
- :dev-http
- {8801
-  {:root "public"
-   :proxy-url "http://geoserver:8080"
-   :proxy-rewrite-host-header true
-   :proxy-reuse-x-forwarded false
-   :proxy-max-connection-retries 1
-   :proxy-max-request-time 30000}}
+ :nrepl {:host "0.0.0.0"
+         :port #shadow/env ["SHADOWCLJS_NREPL_PORT" :as :int :default 8899]}
  
- :http {:port 9630
+ :dev-http {8801
+            {:root "public"
+             :proxy-url "http://geoserver:8080"
+             :proxy-rewrite-host-header true
+             :proxy-reuse-x-forwarded false
+             :proxy-max-connection-retries 1
+             :proxy-max-request-time 30000}}
+
+ :http {:port #shadow/env ["SHADOWCLJS_HTTP_PORT" :as :int :default 9630]
         :host "0.0.0.0"}
- :builds
- {:program {:target :browser
-            :output-dir "resources/public/js-out"
-            :asset-path "/js-out"
-            :module-loader true
-            :modules
-            {:main {:entries [#_simple.core
-                              ged.main
-                              #_routing-example.core
-                              #_conduit.core]}
+ :builds {:ui {:target :browser
+               :output-dir "out/ui"
+               :asset-path "./"
+               :module-loader true
+               :modules {:ui {:entries [#_simple.core
+                                        Leito.ui
+                                        #_routing-example.core
+                                        #_conduit.core]}
 
-             :map {:entries [ged.map-view]
-                   :depends-on #{:main}}
-             :feats {:entries [ged.feats-view]
-                     :depends-on #{:main}}
+                         :map {:entries [Leito.map-view]
+                               :depends-on #{:ui}}
+                         :feats {:entries [Leito.feats-view]
+                                 :depends-on #{:ui}}
 
-             :auth {:entries [ged.auth-view]
-                    :depends-on #{:main}}
+                         :auth {:entries [Leito.auth-view]
+                                :depends-on #{:ui}}
 
-             :rest {:entries [ged.rest-view]
-                    :depends-on #{:main}}
+                         :rest {:entries [Leito.rest-view]
+                                :depends-on #{:ui}}
 
-             :log {:entries [ged.log-view]
-                   :depends-on #{:main}}}
-
-            :compiler-options
-            {:infer-externs    :auto
-             :closure-warnings {:global-this :off}
-             :closure-defines  {}}
-
-            :devtools
-            {#_:after-load
-             #_simple.core/init
-             #_ged.core/main
-             #_routing-example.core/init!
-             #_conduit.core/init
-             :repl-init-ns ged.main
-             :repl-pprint true
-             :http-root  "resources/public"
-             :http-port  9500
-             :http-handler ged.proxy/handle
-             :preloads   []}}}}
+                         :log {:entries [Leito.log-view]
+                               :depends-on #{:ui}}}
+               :compiler-options {:infer-externs   :auto
+                                  :closure-warnings {:global-this :off}
+                                  :closure-defines  {}
+                                  :warnings {:fn-deprecated false}}
+               :devtools {#_:after-load
+                          #_simple.core/init
+                          #_Leito.core/main
+                          #_routing-example.core/init!
+                          #_conduit.core/init
+                          :repl-init-ns Leito.ui
+                          :repl-pprint true
+                          :http-root  "out/ui"
+                          :http-port  9500
+                          #_:http-handler #_Leito.proxy/handle
+                          :devtools-url "http://localhost:9630"
+                          :preloads   []}}}}
