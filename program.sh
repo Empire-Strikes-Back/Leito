@@ -9,5 +9,9 @@ tag(){
   echo $TAG
 }
 
+release(){
+  tag
+}
+
 
 "$@"
