@@ -1,0 +1,16 @@
+{:paths ["./src"]
+
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.clojure/core.async {:mvn/version "0.4.500"}
+
+        thheller/shadow-cljs {:mvn/version "2.8.52"}
+        clj-http/clj-http {:mvn/version "3.10.0"}
+        cheshire/cheshire {:mvn/version "5.8.1"}
+        slingshot/slingshot {:mvn/version "0.12.2"}}
+
+ :aliases
+ {:repl {:extra-deps {Ripley/Ripley {:git/url "https://github.com/Empire-Strikes-Back/Ripley"
+                                     :sha "becd2573ab55d42933134d346bc46cdd8fa08c04"}}}
+
+  :uberjar {:extra-deps {Genie/Genie {:git/url "https://github.com/Empire-Strikes-Back/Genie"
+                                      :sha "fe9200d223e3a5c79e88dfa17bc2697c09dae70e"}}}}}

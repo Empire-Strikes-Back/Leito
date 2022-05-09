@@ -1,0 +1,52 @@
+{:deps         true
+ :nrepl {:host "0.0.0.0"
+         :port #shadow/env ["SHADOWCLJS_NREPL_PORT" :as :int :default 8899]}
+ 
+ :dev-http {8801
+            {:root "public"
+             :proxy-url "http://geoserver:8080"
+             :proxy-rewrite-host-header true
+             :proxy-reuse-x-forwarded false
+             :proxy-max-connection-retries 1
+             :proxy-max-request-time 30000}}
+
+ :http {:port #shadow/env ["SHADOWCLJS_HTTP_PORT" :as :int :default 9630]
+        :host "0.0.0.0"}
+ :builds {:main {:target :browser
+                 :output-dir "out"
+                 :asset-path "./"
+                 :module-loader true
+                 :modules {:main {:entries [#_simple.core
+                                            Leito.David.main
+                                            #_routing-example.core
+                                            #_conduit.core]}
+
+                           :map {:entries [Leito.David.map-view]
+                                 :depends-on #{:main}}
+                           :feats {:entries [Leito.David.feats-view]
+                                   :depends-on #{:main}}
+
+                           :auth {:entries [Leito.David.auth-view]
+                                  :depends-on #{:main}}
+
+                           :rest {:entries [Leito.David.rest-view]
+                                  :depends-on #{:main}}
+
+                           :log {:entries [Leito.David.log-view]
+                                 :depends-on #{:main}}}
+                 :compiler-options {:infer-externs   :auto
+                                    :closure-warnings {:global-this :off}
+                                    :closure-defines  {}
+                                    :warnings {:fn-deprecated false}}
+                 :devtools {#_:after-load
+                            #_simple.core/init
+                            #_Leito.David.core/main
+                            #_routing-example.core/init!
+                            #_conduit.core/init
+                            :repl-init-ns Leito.David.main
+                            :repl-pprint true
+                            :http-root  "out"
+                            :http-port  9500
+                            #_:http-handler #_Leito.David.proxy/handle
+                            :devtools-url "http://localhost:9630"
+                            :preloads   []}}}}

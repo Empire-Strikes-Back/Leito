@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  David:
+    image: leito/david
+    build:
+      context: ./Leito/David
+      dockerfile: release.Dockerfile
+    ports:
+      - 3302:80
+
+  Belle:
+    image: leito/belle
+    build:
+      context: ./Leito/Belle
+      dockerfile: release.Dockerfile
+    ports:
+      - 3303:8080

@@ -1,0 +1,29 @@
+{:paths ["./src"]
+
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org"}}
+
+ :deps {reagent/reagent {:mvn/version "0.9.0-rc1"}
+        reagent-utils/reagent-utils {:mvn/version "0.3.3"}
+        re-frame/re-frame {:mvn/version "0.11.0-rc1"}
+        garden/garden {:mvn/version "1.3.9"}
+        re-pressed/re-pressed {:mvn/version "0.3.1"}
+        binaryage/devtools {:mvn/version "0.9.10"}
+        day8.re-frame/re-frame-10x {:mvn/version "0.4.2"}
+        day8.re-frame/tracing {:mvn/version "0.5.3"}
+        day8.re-frame/http-fx {:mvn/version "0.1.6"}
+
+        org.clojure/data.xml {:mvn/version "0.2.0-alpha6"}
+        bidi/bidi {:mvn/version "2.1.6"}
+
+        kibu/pushy {:mvn/version "0.3.8"}
+        com.andrewmcveigh/cljs-time {:mvn/version "0.5.2"}
+        cljs-ajax/cljs-ajax {:mvn/version "0.7.3"}
+        com.cognitect/transit-cljs {:mvn/version "0.8.256"}}
+
+ :aliases
+ {:Moana {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.4"}
+                       thheller/shadow-cljs {:mvn/version "2.18.0"}
+                       nrepl/nrepl {:mvn/version "0.8.3"}
+                       cider/cider-nrepl {:mvn/version "0.25.5"}
+                       cider/piggieback {:mvn/version "0.5.2"}}}}}
